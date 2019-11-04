@@ -26,14 +26,20 @@ public class DisplayWeather extends AppCompatActivity {
         String description = "";
         try {
             name = weather.getName();
-            temp = weather.getTemp();
+            temp = weather.getTemp()+ "\u00B0" + "F";
             description = weather.getDescription();
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
         // Capture the layout's TextView and set the string as its text
-        TextView textView = findViewById(R.id.textView);
-        textView.setText(name+" "+temp+ " "+description);
+        TextView nameText = findViewById(R.id.nameTextView);
+        nameText.setText(name);
+
+        TextView descText = findViewById(R.id.descTextView);
+        descText.setText(description);
+
+        TextView tempText = findViewById(R.id.tempTextView);
+        tempText.setText(temp);
     }
 }
